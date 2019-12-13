@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script> 
   </head>
 
-	<body ng-app = "studentDataBase">
+	<body ng-app = "homeapp">
 	
 		<div class = "container"> <!-- div container start -->
 			<nav class = "navbar navbar-inverse"> <!-- nav bar start -->
@@ -40,11 +40,11 @@
 						<td>{{student.major}}</td>
 					</tr>
 				</table>
-			</div> <!-- end of allCtrl div --> <!-- end of studentDataBase -->
+			</div> <!-- end of allCtrl div --> <!-- end of homeapp -->
 		</div> <!-- end of class container -->
 		
 		<script>
-			var app = angular.module('students.json', []);
+			var app = angular.module('homeapp', []);
 			app.controller('allCtrl', function($scope, $http) {
 			
 				$http.get("students.json") // get student data
