@@ -44,7 +44,7 @@
 		</div> <!-- end of class container -->
 		
 		<script>
-			var app = angular.module('studentDataBase', []);
+			var app = angular.module('students.json', []);
 			app.controller('allCtrl', function($scope, $http) {
 			
 				$http.get("students.json") // get student data
