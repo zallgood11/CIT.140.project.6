@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-  <html>
-    <head><title>student list</title>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script> 
-  </head>
-
+<html>
+	<head> 
+		<title>student list</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script> 
+	</head>
+	
 	<body ng-app = "homeapp">
 	
 		<div class = "container"> <!-- div container start -->
@@ -17,7 +18,7 @@
 			<div>
 				<ul class = "nav navbar-nav">
 					<li class = "active"><a href = "index.html">Students</a></li>
-					<li><a href + "second_page.html">Second Page</a></li>
+					<li><a href + "gardePointAverage.html">Grade Point Averages</a></li>
 				</ul>
 			</div>
 			</nav> <!-- end of nav bar -->
@@ -28,10 +29,15 @@
 				<p><input type = 'text' ng-model = 'search_text'>Type here</p>
 				<table class = "table table-bordered table-striped">
 					<tr>
-						<th>ID</th> <th>First Name</th> <th>Last Name</th> <th>Credit Hours</th> <th>Gpa points</th> <th>Major</th>
+						<th>ID</th> 
+						<th>First Name</th> 
+						<th>Last Name</th> 
+						<th>Credit Hours</th> 
+						<th>Gpa points</th> 
+						<th>Major</th>
 					</tr>
 					
-					<tr ng-repeat = "students | filter:search_text"> <!-- search bar -->
+					<tr ng-repeat = "student in students | filter:search_text"> <!-- search bar -->
 						<td>{{student.id}}</td>
 						<td>{{student.first_name}}</td>
 						<td>{{student.last_name}}</td>
