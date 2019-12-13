@@ -32,7 +32,7 @@
 						<th>ID</th> <th>First Name</th> <th>Last Name</th> <th>Credit Hours</th> <th>Gpa points</th> <th>Major</th>
 					</tr>
 					
-					<tr ng-repeat = "car in cars | filter:search_text"> <!-- search bar -->
+					<tr ng-repeat = "List of Students | filter:search_text"> <!-- search bar -->
 						<td>{{student.id}}</td>
 						<td>{{student.first_name}}</td>
 						<td>{{student.last_name}}</td>
@@ -45,7 +45,7 @@
 		</div> <!-- end of class container -->
 		
 		<script>
-			var app = angular.module('studentDataBase', []);
+			var app = angular.module('students.json', []);
 			app.controller('allCtrl', function($scope, $http) {
 			
 				$http.get("students.json") // get student data
