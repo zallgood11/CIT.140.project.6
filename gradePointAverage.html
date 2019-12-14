@@ -8,7 +8,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script> 
 	</head>
 	
-	<body ng-app = "studentDataBase">
+	<body ng-app = "gpa_app">
 	
 		<div class = "container"> <!-- div container start -->
 			<nav class = "navbar navbar-inverse"> <!-- nav bar start -->
@@ -17,8 +17,8 @@
 			</div>
 			<div>
 				<ul class = "nav navbar-nav">
-					<li class = "active"></li><a href + "gardePointAverage.html">Grade Point Averages</a>
-					<li><a href = "index.html">Students</a></li>
+					<li class = "active"><a href = "index.html">Students</a></li>
+					<li><a href = "gardePointAverage.html">Grade Point Averages</a></li>
 				</ul>
 			</div>
 			</nav> <!-- end of nav bar -->
@@ -29,23 +29,26 @@
 				<p><input type = 'text' ng-model = 'search_text'>Type here</p>
 				<table class = "table table-bordered table-striped">
 					<tr>
-						<th>ID</th> <th>First Name</th> <th>Last Name</th> <th>Credit Hours</th> <th>Gpa points</th> <th>Major</th>
+						<th>ID</th> 
+						<th>First Name</th> 
+						<th>Last Name</th> 
+						<th>Grade Point Averages</th> 
+						<th>Major</th>
 					</tr>
 					
-					<tr ng-repeat = "List of Students | filter:search_text"> <!-- search bar -->
+					<tr ng-repeat = "student in students | filter:search_text"> <!-- search bar -->
 						<td>{{student.id}}</td>
 						<td>{{student.first_name}}</td>
 						<td>{{student.last_name}}</td>
-						<td>{{student.credit_hrs}}</td>
-						<td>{{student.gpa_points}}</td>
+						 <td>{{(student.gpa_points / student.credit_hrs).toFixed(1)}}</td>
 						<td>{{student.major}}</td>
 					</tr>
 				</table>
-			</div> <!-- end of allCtrl div --> <!-- end of studentDataBase -->
+			</div> <!-- end of allCtrl div --> <!-- end of gpa_app -->
 		</div> <!-- end of class container -->
 		
 		<script>
-			var app = angular.module('students.json', []);
+			var app = angular.module('gpa_app', []);
 			app.controller('allCtrl', function($scope, $http) {
 			
 				$http.get("students.json") // get student data
@@ -55,6 +58,6 @@
 					});
 					
 				});
-		<script>
+		</script>
 	</body>
 </html>
